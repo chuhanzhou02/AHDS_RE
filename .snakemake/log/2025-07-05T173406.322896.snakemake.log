@@ -1,0 +1,24 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job           count    min threads    max threads
+----------  -------  -------------  -------------
+clean_data        1              1              1
+total             1              1              1
+
+Select jobs to execute...
+
+[Sat Jul  5 17:34:06 2025]
+rule clean_data:
+    input: raw/pmids.xml
+    output: clean/articles.tsv
+    jobid: 0
+    reason: Missing output files: clean/articles.tsv
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 17:34:06 2025]
+Finished job 0.
+1 of 1 steps (100%) done
+Complete log: .snakemake/log/2025-07-05T173406.322896.snakemake.log

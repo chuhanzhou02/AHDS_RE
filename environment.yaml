@@ -1,0 +1,14 @@
+name: work_env
+channels:
+  - conda-forge
+  - bioconda
+  - https://repo.anaconda.com/pkgs/main
+  - https://repo.anaconda.com/pkgs/r
+dependencies:
+  - python=3.9
+  - r
+  - mamba
+  - r-tidyverse
+  - r-tidytext
+  - snakemake==7.8.5
+

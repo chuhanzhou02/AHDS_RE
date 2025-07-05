@@ -11,7 +11,7 @@ rule download_data:
     output:
         "raw/pmids.xml"
     params:
-        retmax = 100 if config["test"] else 10000
+        retmax = 20 if config["test"] else 10000
     shell:
         """
         bash scripts/download_data.sh {params.retmax}

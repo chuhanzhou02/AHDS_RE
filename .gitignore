@@ -1,0 +1,8 @@
+# Snakemake-generated cache/logs
+.snakemake/
+raw/
+clean/
+plot/
+*.tsv
+*.log
+*.png

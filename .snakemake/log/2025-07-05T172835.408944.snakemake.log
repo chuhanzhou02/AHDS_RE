@@ -1,0 +1,43 @@
+Building DAG of jobs...
+Using shell: /usr/bin/bash
+Provided cores: 1 (use --cores to define parallelism)
+Rules claiming more threads will be scaled down.
+Job stats:
+job              count    min threads    max threads
+-------------  -------  -------------  -------------
+all                  1              1              1
+clean_data           1              1              1
+clean_title          1              1              1
+download_data        1              1              1
+plot                 1              1              1
+total                5              1              1
+
+Select jobs to execute...
+
+[Sat Jul  5 17:28:36 2025]
+rule download_data:
+    output: raw/pmids.xml
+    jobid: 1
+    reason: Missing output files: raw/pmids.xml
+    resources: tmpdir=/tmp
+
+[Sat Jul  5 17:29:05 2025]
+Finished job 1.
+1 of 5 steps (20%) done
+Select jobs to execute...
+
+[Sat Jul  5 17:29:05 2025]
+rule clean_data:
+    input: raw/pmids.xml
+    output: clean/articles.tsv
+    jobid: 2
+    reason: Missing output files: clean/articles.tsv; Input files updated by another job: raw/pmids.xml
+    resources: tmpdir=/tmp
+
+Waiting at most 5 seconds for missing files.
+MissingOutputException in line 21 of /home/zch/AHDS_RE/AHDS_RE/Snakefile:
+Job Missing files after 5 seconds. This might be due to filesystem latency. If that is the case, consider to increase the wait time with --latency-wait:
+clean/articles.tsv completed successfully, but some output files are missing. 2
+Shutting down, this might take some time.
+Exiting because a job execution failed. Look above for error message
+Complete log: .snakemake/log/2025-07-05T172835.408944.snakemake.log
