@@ -1,9 +1,7 @@
 # ===============================
-# Snakemake cache and logs
+# Snakemake 
 # ===============================
 .snakemake/
-*.snakemake.log
-*.log
 
 # ===============================
 # Generated data files (intermediate)
