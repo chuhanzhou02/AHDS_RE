@@ -1,8 +1,56 @@
-# Snakemake-generated cache/logs
+# ===============================
+# Snakemake cache and logs
+# ===============================
 .snakemake/
+*.snakemake.log
+*.log
+
+# ===============================
+# Generated data files (intermediate)
+# ===============================
 raw/
 clean/
 plot/
 *.tsv
-*.log
+*.csv
 *.png
+*.pdf
+
+# ===============================
+# Conda-related files
+# ===============================
+*.lock
+*.bak
+*.conda
+*.tar.bz2
+*.egg-info/
+
+# Environment configuration (optional to include)
+# comment out if you want to track it
+# environment.yaml
+
+# ===============================
+# Python/R specific
+# ===============================
+__pycache__/
+*.pyc
+.Rhistory
+.Rproj.user/
+.RData
+.Ruserdata
+
+# ===============================
+# System/editor files
+# ===============================
+.DS_Store
+Thumbs.db
+desktop.ini
+*.swp
+*.tmp
+*.~*
+
+# ===============================
+# Git conflict leftovers
+# ===============================
+*.orig
+*.rej
