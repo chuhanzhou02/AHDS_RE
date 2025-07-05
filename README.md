@@ -19,11 +19,11 @@ This project automates the process of fetching, cleaning, and analyzing research
 
 2. Install required Python and R packages:
    ```
-   conda env create -f environment.yml
+   conda env create -f environment.yaml
    conda activate work-env
    ```
 
-## Running the Pipeline
+## Running the Pipelinea
 To run the entire pipeline, use the provided `Snakefile` which orchestrates the execution of scripts in the correct order:
 
 ```
