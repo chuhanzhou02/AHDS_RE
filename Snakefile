@@ -42,7 +42,8 @@ rule plot:
     input:
           "clean/article_clean.tsv"
     output:
-         "plot/Top_15_Keywords_Trends.png"
+         "plot/Top_15_Keywords_Trends.png",
+         "plot/LDA_Topic_Trends_Facet_Keywords.png"
     shell:
         """
         Rscript scripts/plot_data.R
