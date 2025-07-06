@@ -37,6 +37,26 @@ top_words <- data %>%
   slice_max(n, n = 10) %>%
   pull(word)
 
+# 判断样本总量
+total_n <- nrow(data)
+
+# 判断是否保留 2025 年
+if (total_n < 100) {
+word_trends <- data %>%
+  unnest_tokens(word, title) %>%
+  filter(word %in% top_words) %>%
+  count(year, word) %>%
+  complete(year = 2000:2024, word, fill = list(n = 0)) %>%
+} else {
+word_trends <- data %>%
+  unnest_tokens(word, title) %>%
+  filter(word %in% top_words) %>%
+  count(year, word) %>%
+  complete(year = 2000:2024, word, fill = list(n = 0)) %>%
+  filter(year != 2025)
+}
+
+
 word_trends <- data %>%
   unnest_tokens(word, title) %>%
   filter(word %in% top_words) %>%
@@ -89,11 +109,23 @@ doc_years <- data.frame(document = as.integer(rownames(dtm)),
 doc_topics$document <- as.integer(doc_topics$document)
 
 # === Filter out low-frequency years (e.g., < 5 articles) ===
-valid_years <- data %>%
-  filter(year != 2025) %>%       
-  count(year) %>%
-  filter(n >= 5) %>%
-  pull(year)
+# 判断样本总量
+total_n <- nrow(data)
+
+# 判断是否保留 2025 年
+if (total_n < 100) {
+  valid_years <- data %>%
+    count(year) %>%
+    filter(n >= 5) %>%
+    pull(year)
+} else {
+  valid_years <- data %>%
+    filter(year != 2025) %>%
+    count(year) %>%
+    filter(n >= 5) %>%
+    pull(year)
+}
+
 
 
 topic_time <- doc_topics %>%
