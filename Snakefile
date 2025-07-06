@@ -5,7 +5,7 @@ rule all:
          "raw/pmids.xml",
           "clean/articles.tsv",
           "clean/article_clean.tsv",
-         "plot/Top_15_Keywords_Trends.png"
+         "plot/Top_10_Keywords_Trends.png"
 
 rule download_data:
     output:
@@ -42,7 +42,7 @@ rule plot:
     input:
           "clean/article_clean.tsv"
     output:
-         "plot/Top_15_Keywords_Trends.png",
+         "plot/Top_10_Keywords_Trends.png",
          "plot/LDA_Topic_Trends_Facet_Keywords.png"
     shell:
         """
