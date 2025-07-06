@@ -72,3 +72,27 @@ sbatch run.sh
    - plots: Stores the results of data visualizations, such as word frequency graphs or LDA topic models.
    
 
+
+
+## Pipeline Design
+
+This project uses a modular and reproducible pipeline managed by **Snakemake**. On **BlueCrystal**, the pipeline should be run using the SLURM executor and a pre-configured profile:
+
+```bash
+snakemake --profile slurm
+```
+
+This will execute the rules defined in the `Snakefile` using SLURM job submission. You can customize the number of jobs, latency wait time, and other SLURM-specific parameters through the `slurm/config.yaml` profile directory.
+
+## Test Mode
+
+To support testing with a smaller dataset, the pipeline includes a `test` setting in the main `config.yaml` file:
+
+```yaml
+test: true
+```
+
+* When `test: true`, the pipeline limits the PubMed fetch step to **20 articles**, allowing for fast testing and debugging.
+* When `test: false`, the full number of articles defined in `retmax` will be downloaded and processed.
+
+
